@@ -25,6 +25,7 @@ exports.greeting_task =async function(context, event, callback,RB) {
     Remember.F_Letter_Namespace = "";
     Remember.AccountFrom = "";
 
+    Remember.RehabIneligible = "";
     Remember.AccountType = "";
     Remember.ClientName = "";
     Remember.ClientID = "";
@@ -113,6 +114,7 @@ exports.greeting_task =async function(context, event, callback,RB) {
         console.log("Accountsuccess:"+ success);
         if ( success ) {
           const userData = {
+            RehabIneligible:userRespData.RehabIneligible,
             NameSpace: userRespData.NameSpace,
             AccountType: userRespData.AccountType,
             ClientName: userRespData.ClientName,
@@ -148,7 +150,7 @@ exports.greeting_task =async function(context, event, callback,RB) {
           };
             console.log("userData:"+ JSON.stringify(userData));
             Remember.userData = userData;
-
+            Remember.RehabIneligible=userRespData.RehabIneligible,
             Remember.NameSpace= userRespData.NameSpace,
             Remember.AccountType= userRespData.AccountType,
             Remember.ClientName= userRespData.ClientName,
@@ -180,7 +182,14 @@ exports.greeting_task =async function(context, event, callback,RB) {
             Remember.CurrentInterest= userRespData.CurrentInterest,	
             Remember.CurrentTotal= userRespData.CurrentTotal,	
             Remember.Pct_Interest_Rate= userRespData.Pct_Interest_Rate	
-
+            if(userData.RehabIneligible==="0")
+            {
+              console.log("Rehab Eligible Account:");
+              Collect = false;
+              Redirect = true;
+              Say = `We need to transfer you to an agent for account number, <say-as interpret-as='digits'>${AccountNo}</say-as> is not active.`;
+              Redirect = "task://agent_transfer";
+            }
           if( userData.Returns==="1" ){
             console.log("accountStatus true:");
             Redirect = "task://check_name_task";

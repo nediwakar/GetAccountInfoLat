@@ -190,7 +190,7 @@ exports.greeting_task =async function(context, event, callback,RB) {
               Say = `We need to transfer you to an agent for account number, <say-as interpret-as='digits'>${AccountNo}</say-as> is not active.`;
               Redirect = "task://agent_transfer";
             }
-          if( userData.Returns==="1" ){
+          else if( userData.Returns==="1" ){
             console.log("accountStatus true:");
             Redirect = "task://check_name_task";
           }

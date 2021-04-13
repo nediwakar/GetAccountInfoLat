@@ -48,7 +48,7 @@
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://getaccountinfolat-6960-dev.twil.io/index"
+                        "redirect" : "https://getaccountinfolat-8998-dev.twil.io/index"
                     },
                     { "listen" : true }
                 ]
@@ -74,7 +74,7 @@
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://getaccountinfolat-6960-dev.twil.io/index"
+                        "redirect" : "https://getaccountinfolat-8998-dev.twil.io/index"
                     },
                     { "listen" : true }
                 ]
@@ -92,7 +92,7 @@
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://getaccountinfolat-6960-dev.twil.io/index"
+                        "redirect" : "https://getaccountinfolat-8998-dev.twil.io/index"
                     }
                 ]
             },
@@ -162,7 +162,7 @@
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://getaccountinfolat-6960-dev.twil.io/index"
+                        "redirect" : "https://getaccountinfolat-8998-dev.twil.io/index"
                     }
                 ]
             },
@@ -174,7 +174,7 @@
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://getaccountinfolat-6960-dev.twil.io/index"
+                        "redirect" : "https://getaccountinfolat-8998-dev.twil.io/index"
                     }
                 ]
             },
@@ -264,7 +264,7 @@
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://getaccountinfolat-6960-dev.twil.io/index"
+                        "redirect" : "https://getaccountinfolat-8998-dev.twil.io/index"
                     }
                 ]
             },
@@ -276,7 +276,7 @@
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://getaccountinfolat-6960-dev.twil.io/index"
+                        "redirect" : "https://getaccountinfolat-8998-dev.twil.io/index"
                     }
                 ]
             },
@@ -406,7 +406,7 @@
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://getaccountinfolat-6960-dev.twil.io/index"
+                        "redirect" : "https://getaccountinfolat-8998-dev.twil.io/index"
                     }
                 ]
             },

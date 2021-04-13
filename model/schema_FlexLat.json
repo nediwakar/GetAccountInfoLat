@@ -18,11 +18,7 @@
                     "on_failure" : {
                         "repeat_question" : false,
                         "messages" : [
-                            {
-                                "say" : {
-                                    "speech" : "I didn't get that. What did you say?"
-                                }
-                            },
+                            { "say" : { "speech" : "" } },
                             {
                                 "say" : {
                                     "speech" : "I still didn't catch that. Please repeat."
@@ -36,7 +32,7 @@
                         ]
                     },
                     "on_success" : { "say" : { "speech" : "" } },
-                    "max_attempts" : 4
+                    "max_attempts" : 1
                 }
             },
             "voice" : {
@@ -419,6 +415,6 @@
         }
     ],
     "modelBuild" : {
-        "uniqueName" : "GetAccountInfoLat_3-4-2021_12.53.29am"
+        "uniqueName" : "GetAccountInfoLat_12-4-2021_6.36.16pm"
     }
 }

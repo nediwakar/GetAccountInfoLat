@@ -15,16 +15,25 @@ exports.ZipOrSSN_Task =async function(context, event, callback,RB) {
     let SSNCode = Memory.userData.SSN;
     let enterdigit = "";
     let MSG = "";
-    
-   
+    let squestion="";
+
     try{
       enterdigit = Memory.twilio.collected_data.collect_ziporssn.answers.ziporssn.answer;
     }
     catch{
       enterdigit = null
     }
-        let squestion = `For your account verification please say or enter your Zip Code or the last four digits of your Social Security number`;
 
+    squestion = `For your account verification please say or enter your Zip Code or the last four digits of your Social Security number`;
+    if(Zipcode.length===5 && SSNCode.length<4)
+    {
+      squestion = `For your account verification please say or enter your Zip Code`;
+    }
+    else if(Zipcode.length<5 && SSNCode.length===4)
+    {
+      squestion = `For your account verification please say or enter your the last four digits of your Social Security number`;
+    }
+    
         let Collect_Json =  {
             "name": "collect_ziporssn",
             "questions": [

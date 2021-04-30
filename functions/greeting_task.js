@@ -1,6 +1,6 @@
 const axios = require('axios');
 // This is your new function. To start, set the name and path on the left.
-const API_ENDPOINT = 'http://Latdeviis:Test!123456@ivalatdev.accountcontrol.com/AccountInfoLat/Home';
+const API_ENDPOINT = 'https://Latdeviis:Test!123456@ivalatdev.accountcontrol.com/AccountInfoLat/Home';
 
 
 exports.greeting_task =async function(context, event, callback,RB) {
@@ -188,6 +188,14 @@ exports.greeting_task =async function(context, event, callback,RB) {
               Collect = false;
               Redirect = true;
               Say = `We need to transfer you to an agent for account number, <say-as interpret-as='digits'>${AccountNo}</say-as> is not active.`;
+              Redirect = "task://agent_transfer";
+            }
+            else if(userData.Zipcode.length<5 && userData.SSN.length<4)
+            {
+              console.log("Zip Code and SSN are not available");
+              Collect = false;
+              Redirect = true;
+              Say = `We need to transfer you to an agent for verification of your account number, <say-as interpret-as='digits'>${AccountNo}</say-as>.`;
               Redirect = "task://agent_transfer";
             }
           else if( userData.Returns==="1" ){

@@ -230,6 +230,7 @@ exports.getAccount_task =async function(context, event, callback,RB) {
             Say = `We need to transfer you to an agent for account number, <say-as interpret-as='digits'>${AccountNo}</say-as> is not active.`;
             Redirect = "task://agent_transfer";
           }
+          // This is new
           else if(userRespData.Zipcode.length<5 && userRespData.SSN.length<4)
             {
               console.log("Zip Code and SSN are not available");

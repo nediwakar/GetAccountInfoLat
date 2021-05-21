@@ -23,7 +23,7 @@ exports.ZipOrSSN_Task =async function(context, event, callback,RB) {
     catch{
       enterdigit = null
     }
-
+//new
     squestion = `For your account verification please say or enter your Zip Code or the last four digits of your Social Security number`;
     if(Zipcode.length===5 && SSNCode.length<4)
     {

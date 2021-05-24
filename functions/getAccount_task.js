@@ -1,7 +1,8 @@
 const axios = require('axios');
+require('dotenv').config();
 // This is your new function. To start, set the name and path on the left.
-const API_ENDPOINT = 'https://Latdeviis:Test!123456@ivalatdev.accountcontrol.com/AccountInfoLat/Home';
-
+//const API_ENDPOINT = process.env.WebAPI; //'https://Latdeviis:Test!123456@ivalatdev.accountcontrol.com/AccountInfoLat/Home';
+const API_ENDPOINT = process.env.WebAPI;
 exports.getAccount_task =async function(context, event, callback,RB) {
     let Say;
     let Prompt;
@@ -11,7 +12,8 @@ exports.getAccount_task =async function(context, event, callback,RB) {
     let Tasks = false;
     let Redirect = false;
     let Handoff = false;
-  
+    
+    console.log(API_ENDPOINT);
     const Memory = JSON.parse(event.Memory);
     Remember.RehabIneligible = "";
     Remember.AccountType = "";
@@ -222,12 +224,12 @@ exports.getAccount_task =async function(context, event, callback,RB) {
           Listen = false;
           Redirect = true;
           Remember.AccountFailed_Counter = 0;
-          if(userData.RehabIneligible==="0")
+          if(userData.RehabIneligible==="0")// Student Loan Accounts which Need FIS and 15% calculator
           {
             console.log("Rehab Eligible Account:");
             Collect = false;
             Redirect = true;
-            Say = `We need to transfer you to an agent for account number, <say-as interpret-as='digits'>${AccountNo}</say-as> is not active.`;
+            Say = `We need to transfer you to an agent for account number, <say-as interpret-as='digits'>${AccountNo}</say-as>.`;
             Redirect = "task://agent_transfer";
           }
           // This is new
@@ -249,7 +251,7 @@ exports.getAccount_task =async function(context, event, callback,RB) {
             console.log("accountStatus false:");
             Collect = false;
             Redirect = true;
-            Say = `We need to transfer you to an agent for account number, <say-as interpret-as='digits'>${AccountNo}</say-as> is not active.`;
+            Say = `We need to transfer you to an agent for account number, <say-as interpret-as='digits'>${AccountNo}</say-as>.`;
             Redirect = "task://agent_transfer";
           }
         }

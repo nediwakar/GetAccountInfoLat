@@ -1,7 +1,8 @@
+require('dotenv').config();
 const axios = require('axios');
 // This is your new function. To start, set the name and path on the left.
-const API_ENDPOINT = 'https://Latdeviis:Test!123456@ivalatdev.accountcontrol.com/AccountInfoLat/Home';
-
+//const API_ENDPOINT = 'https://Latdeviis:Test!123456@ivalatdev.accountcontrol.com/AccountInfoLat/Home';//
+const API_ENDPOINT = process.env.WebAPI;
 
 exports.greeting_task =async function(context, event, callback,RB) {
     let Say;
@@ -14,6 +15,8 @@ exports.greeting_task =async function(context, event, callback,RB) {
     let Handoff = false;
 
     const Memory = JSON.parse(event.Memory);
+    
+    console.log(API_ENDPOINT);
     Remember.clientName = "";
     Remember.mailingAddress = "";
     Remember.OnlinePaymentURL = "";
@@ -187,7 +190,7 @@ exports.greeting_task =async function(context, event, callback,RB) {
               console.log("Rehab Eligible Account:");
               Collect = false;
               Redirect = true;
-              Say = `We need to transfer you to an agent for account number, <say-as interpret-as='digits'>${AccountNo}</say-as> is not active.`;
+              Say = `We need to transfer you to an agent for account number, <say-as interpret-as='digits'>${AccountNo}</say-as> .`;
               Redirect = "task://agent_transfer";
             }
             // This is new
